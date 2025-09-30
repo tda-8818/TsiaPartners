@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Container, Section, Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui';
+import { Container, Section } from '@/components/ui';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import ContactForm from '@/components/features/ContactForm';
 

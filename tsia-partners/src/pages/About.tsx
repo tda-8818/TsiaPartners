@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Container, Section, Card } from '@/components/ui';
-import { Award, Users, TrendingUp, Shield, Briefcase, HeartHandshake } from 'lucide-react';
+import { Users } from 'lucide-react';
 
 const About: React.FC = () => {
   const teamMembers = [

@@ -41,17 +41,28 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
       ? 'hover:shadow-xl hover:-translate-y-1'
       : '';
 
-    const Component = hover || variant === 'interactive' ? motion.div : 'div';
-
-    const motionProps = hover || variant === 'interactive'
-      ? {
-          whileHover: { y: -4 },
-          transition: { duration: 0.2 },
-        }
-      : {};
+    if (hover || variant === 'interactive') {
+      return (
+        <motion.div
+          ref={ref}
+          className={cn(
+            baseStyles,
+            variants[variant],
+            paddings[padding],
+            hoverEffects,
+            className
+          )}
+          whileHover={{ y: -4 }}
+          transition={{ duration: 0.2 }}
+          {...(props as any)}
+        >
+          {children}
+        </motion.div>
+      );
+    }
 
     return (
-      <Component
+      <div
         ref={ref}
         className={cn(
           baseStyles,
@@ -60,11 +71,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
           hoverEffects,
           className
         )}
-        {...motionProps}
         {...props}
       >
         {children}
-      </Component>
+      </div>
     );
   }
 );
