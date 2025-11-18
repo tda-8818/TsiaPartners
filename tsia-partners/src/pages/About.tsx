@@ -1,153 +1,117 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Container, Section, Card } from '@/components/ui';
-import { Users } from 'lucide-react';
+import { Container, Section } from '@/components/ui';
 
 const About: React.FC = () => {
-  const teamMembers = [
+  const team = [
     {
       name: 'Jia Hao Tsia',
       role: 'Principal',
       qualifications: 'BMathFin, BSci(Hons), MPA, CA',
-      registrations: 'Registered Tax Agent and ASIC Agent',
+      registrations: 'Registered Tax Agent & ASIC Agent',
       bio: [
-        "Jia is Principal of Tsia Partners. He has experience in both professional practice and banking services across small, medium-sized, corporate and institutional clients.",
-        "Jia's career began in banking where he's held a number of positions in credit committees, transfer pricing committees, and heading the credit and economic reporting for the Australian Banking Division in the Asia & Oceania region.",
-        "Jia moved across to tax and accounting services in order to help grow his clients from a more hands-on perspective as a business partner and consultant."
+        "Jia is Principal of TSIA Partners. He has experience in both professional practice and banking services across small, medium-sized, corporate and institutional clients.",
+        "His career began in banking where he held positions in credit committees, transfer pricing committees, and headed credit and economic reporting for the Australian Banking Division in the Asia & Oceania region.",
+        "Jia moved to tax and accounting services to help grow his clients from a more hands-on perspective as a true business partner and consultant."
       ],
     },
     {
       name: 'Tom Tsia',
       role: 'Principal',
       qualifications: 'BComm, FCA, FCPA',
-      registrations: 'Registered Tax Agent, Registered Auditor',
+      registrations: 'Registered Tax Agent & Registered Auditor',
       bio: [
-        "Tom is Principal of Tsia Partners, and is the founder of L K Tsia Chartered Accountants. He has been a practitioner since 1975 with over 45 years of experience.",
-        "As a FCA, FCPA, Registered Tax Agent and Registered Auditor, he provides tax, audit and accounting services to a large range of clients which has included Aviation companies, Freight businesses, Manufacturers, Restaurants, Unions and Associations."
+        "Tom is Principal of TSIA Partners and founder of L K Tsia Chartered Accountants. He has been a practitioner since 1975 — over 50 years of experience.",
+        "As a Fellow Chartered Accountant, Fellow CPA, Registered Tax Agent and Registered Auditor, he provides tax, audit and accounting services to a wide range of clients including aviation, freight, manufacturing, hospitality, unions and associations."
       ],
     },
   ];
 
-  
-
   const partners = [
     'Audit Services',
-    'Depreciation Services',
-    'Insolvency & Forensic Accounting Services',
+    'Depreciation Schedules',
+    'Insolvency & Forensic Accounting',
     'Financial Planning',
     'Legal Services',
-    'Mortgage Services',
-    'Research and Development',
+    'Mortgage Broking',
+    'Research & Development Tax Incentives',
   ];
 
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <Section background="gradient" padding="lg">
+    <div className="pt-20 min-h-screen">
+      {/* Hero – Clean & Elegant */}
+      <Section background="white" padding="md">
         <Container>
           <motion.div
-            className="text-center max-w-4xl mx-auto"
+            className="text-center max-w-5xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
           >
-            <h1 className="text-4xl lg:text-6xl font-light text-neutral-900 mb-6 leading-tight">
-              About <span className="font-semibold text-accent relative">
-                TSIA Partners
-                <span className="absolute bottom-1 left-0 right-0 h-1 bg-accent/20 -z-10"></span>
-              </span>
+            <h1 className="text-5xl lg:text-7xl font-light text-neutral-900 mb-6">
+              About <span className="font-semibold text-accent-500 underline-accent">TSIA Partners</span>
             </h1>
-            <p className="text-xl lg:text-2xl text-neutral-600 leading-relaxed mb-8">
-              Chartered Accountants and Tax Agents
-            </p>
-            <p className="text-lg text-neutral-600 leading-relaxed">
-              Tsia Partners brings together over 50 years of experience working with businesses and individuals as advisers, consultants and business partners. We specialise in tax, accounting, and business advisory.
+            <p className="text-xl lg:text-2xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
+              Chartered Accountants & Tax Agents with over 50 years of combined experience serving Sydney businesses and individuals as true partners in growth.
             </p>
           </motion.div>
         </Container>
       </Section>
 
-      
-
-      {/* Meet the Team */}
-      <Section background="grey" padding="lg">
+      {/* Meet the Team – Premium Cards */}
+      <Section background="grey" padding="md">
         <Container>
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl font-light text-neutral-900 mb-4">
-              Meet the <span className="font-semibold text-accent">Team</span>
+          <motion.div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-light text-neutral-900 mb-4">
+              Meet <span className="font-semibold text-accent-500">Our Team</span>
             </h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Experienced professionals dedicated to your financial success
-            </p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-8">
-            {teamMembers.map((member, index) => (
+          <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            {team.map((member, i) => (
               <motion.div
                 key={member.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ delay: i * 0.2 }}
+                className="group"
               >
-                <Card variant="elevated" padding="lg" className="h-full">
-                  {/* Photo Placeholder */}
-                  <div className="w-32 h-32 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-full mx-auto mb-6 flex items-center justify-center border-4 border-white shadow-lg-subtle">
-                    <Users size={48} className="text-neutral-400" />
-                  </div>
+                <div className="bg-white rounded-3xl p-10 shadow-md-subtle hover:shadow-xl-subtle border border-neutral-200/70 hover:border-accent-500/30 transition-all duration-400">
+                  <h3 className="text-2xl font-semibold text-neutral-900 text-center mb-2">
+                    {member.name}
+                  </h3>
+                  <p className="text-accent-500 font-medium text-center mb-6">
+                    {member.role}
+                  </p>
+                  <p className="text-sm text-neutral-600 text-center mb-2">
+                    {member.qualifications}
+                  </p>
+                  <p className="text-sm text-neutral-500 text-center mb-8">
+                    {member.registrations}
+                  </p>
 
-                  {/* Name & Role */}
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                      {member.name}
-                    </h3>
-                    <div className="text-accent font-semibold mb-3">
-                      {member.role}
-                    </div>
-                    <div className="text-sm text-neutral-600 mb-2">
-                      {member.qualifications}
-                    </div>
-                    <div className="text-sm text-neutral-500">
-                      {member.registrations}
-                    </div>
-                  </div>
-
-                  {/* Bio */}
-                  <div className="space-y-4">
-                    {member.bio.map((paragraph, idx) => (
-                      <p key={idx} className="text-neutral-600 leading-relaxed">
-                        {paragraph}
-                      </p>
+                  <div className="space-y-4 text-neutral-600 leading-relaxed text-center">
+                    {member.bio.map((para, idx) => (
+                      <p key={idx}>{para}</p>
                     ))}
                   </div>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
         </Container>
       </Section>
 
-      {/* Our Partners */}
-      <Section background="white" padding="lg">
+      {/* Partners – Clean List with Orange Dots */}
+      <Section background="white" padding="md">
         <Container>
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl font-light text-neutral-900 mb-4">
-              Our <span className="font-semibold text-accent">Partners</span>
+          <motion.div className="text-center mt-20 mb-16 lg:mt-32">
+            <h2 className="text-4xl lg:text-5xl font-light text-neutral-900 mb-4">
+              Our <span className="font-semibold text-accent-500">Partners</span>
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              We partner with a number of professionals ensuring you can have one managed point of contact
+              We collaborate with trusted specialists so you have one point of contact for everything
             </p>
           </motion.div>
 
@@ -156,19 +120,18 @@ const About: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="grid md:grid-cols-2 gap-4">
-              {partners.map((partner, index) => (
+            <div className="grid sm:grid-cols-2 gap-6">
+              {partners.map((partner, i) => (
                 <motion.div
                   key={partner}
-                  className="flex items-center gap-3 p-4 bg-white rounded-xl border border-neutral-200 hover:border-accent/30 hover:shadow-md-subtle transition-all"
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="flex items-center gap-4 p-5 bg-neutral-50/50 rounded-2xl hover:bg-accent-500/5 transition-colors duration-300"
                 >
-                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                  <div className="w-3 h-3 bg-accent-500 rounded-full flex-shrink-0" />
                   <span className="text-neutral-700 font-medium">{partner}</span>
                 </motion.div>
               ))}
@@ -177,25 +140,19 @@ const About: React.FC = () => {
         </Container>
       </Section>
 
-      {/* CTA Section */}
-      <Section background="grey" padding="lg">
+      {/* Final CTA – Full bleed, calm */}
+      <Section background="grey" padding="lg" className="mt-20 lg:mt-32">
         <Container>
-          <motion.div
-            className="text-center max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl lg:text-4xl font-light text-neutral-900 mb-4">
+          <motion.div className="text-center max-w-4xl mx-auto">
+            <h2 className="text-4xl lg:text-5xl font-light text-neutral-900 mb-6">
               Ready to work with us?
             </h2>
-            <p className="text-xl text-neutral-600 mb-8">
+            <p className="text-xl text-neutral-600 mb-10">
               Experience the TSIA Partners difference. Book your free consultation today.
             </p>
             <a href="/contact">
-              <button className="bg-white text-accent border-2 border-accent hover:bg-accent hover:text-white px-8 py-4 rounded-full font-semibold shadow-md-subtle hover:shadow-lg-subtle hover:-translate-y-0.5 transition-all duration-300">
-                Get in Touch
+              <button className="bg-white text-accent-500 border-2 border-accent-500 hover:bg-accent-500 hover:text-white px-12 py-6 rounded-full font-semibold text-lg shadow-md-subtle hover:shadow-xl-subtle hover:-translate-y-1 transition-all duration-300">
+                Book Free Consultation
               </button>
             </a>
           </motion.div>

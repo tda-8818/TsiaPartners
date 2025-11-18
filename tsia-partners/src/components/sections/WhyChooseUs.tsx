@@ -68,129 +68,68 @@ const WhyChooseUs: React.FC = () => {
         },
     ];
 
-    const stats = [
-        { value: 50, label: 'Years in Business', suffix: '+' },
-        { value: 500, label: 'Happy Clients', suffix: '+' },
-        { value: 100, label: 'Compliance Rate', suffix: '%' },
-    ];
-
-    const staticStats = [
-        { text: '24/7', label: 'Support Available' },
-    ];
-
     return (
-        <Section background="grey" padding="lg">
+        <Section background="grey" padding="md" className="py-20 lg:py-32">
             <Container>
-                {/* Section Header */}
-                <motion.div
-                    className="text-center max-w-3xl mx-auto mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h2 className="text-4xl lg:text-5xl font-light text-neutral-900 mb-4">
-                        Why Choose <span className="font-semibold relative text-accent">
+                {/* Header */}
+                <motion.div className="text-center max-w-4xl mx-auto mb-16">
+                    <h2 className="text-5xl lg:text-6xl font-light text-neutral-900 mb-6">
+                        Why Choose{' '}
+                        <span className="font-semibold text-accent-500 relative">
                             TSIA Partners
-                            <span className="absolute bottom-1 left-0 right-0 h-1 bg-accent/20 -z-10"></span>
+                            <span className="absolute -bottom-2 left-0 right-0 h-1.5 bg-accent-500/20 -z-10 rounded-full"></span>
                         </span>
                     </h2>
-                    <p className="text-xl text-neutral-600 leading-relaxed">
-                        Experience the difference of working with Sydney's most trusted accounting firm
+                    <p className="text-xl lg:text-2xl text-neutral-600 leading-relaxed">
+                        Experience the difference of working with Sydney’s most trusted accounting firm
                     </p>
                 </motion.div>
 
-                {/* Stats Bar - Now Animated */}
+                {/* Animated Stats — now with subtle orange accent */}
                 <motion.div
-                    className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16 p-8 bg-white rounded-2xl shadow-lg-subtle"
-                    initial={{ opacity: 0, y: 20 }}
+                    className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20 p-10 bg-white rounded-3xl shadow-lg-subtle border border-accent-500/10"
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                    {stats.map((stat, index) => (
-                        <StatItem
-                            key={index}
-                            endValue={stat.value}
-                            label={stat.label}
-                            suffix={stat.suffix}
-                        />
-                    ))}
-                    {staticStats.map((stat, index) => (
-                        <div key={index} className="text-center">
-                            <div className="text-4xl lg:text-5xl font-bold text-neutral-900 mb-2">
-                                {stat.text}
-                            </div>
-                            <div className="text-sm text-neutral-600 font-medium">
-                                {stat.label}
-                            </div>
-                        </div>
-                    ))}
+                    <StatItem endValue={50} label="Years in Business" suffix="+" />
+                    <StatItem endValue={500} label="Happy Clients" suffix="+" />
+                    <StatItem endValue={100} label="Compliance Rate" suffix="%" />
+                    <div className="text-center">
+                        <div className="text-5xl font-bold text-accent-500 mb-2">24/7</div>
+                        <div className="text-sm text-neutral-600 font-medium">Support Available</div>
+                    </div>
                 </motion.div>
 
-                {/* Reasons Grid */}
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {reasons.map((reason, index) => (
+                {/* Reasons Grid — premium cards with orange icon glow */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    {reasons.map((reason, i) => (
                         <motion.div
                             key={reason.title}
-                            className="flex gap-4"
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ delay: i * 0.1 }}
+                            className="group"
                         >
-                            {/* Icon */}
-                            <div className="w-12 h-12 bg-white border-2 border-neutral-200 rounded-xl flex items-center justify-center text-neutral-700 flex-shrink-0 shadow-subtle">
-                                <reason.icon size={24} strokeWidth={1.5} />
-                            </div>
-
-                            {/* Content */}
-                            <div>
-                                <h3 className="text-lg font-semibold text-neutral-900 mb-2">
-                                    {reason.title}
-                                </h3>
-                                <p className="text-neutral-600 leading-relaxed">
-                                    {reason.description}
-                                </p>
+                            <div className="h-full bg-white rounded-3xl p-8 border border-neutral-200/70 shadow-md-subtle hover:shadow-xl-subtle hover:border-accent-500/30 transition-all duration-400 hover:-translate-y-2">
+                                <div className="w-16 h-16 bg-gradient-to-br from-accent-500/10 to-accent-500/5 rounded-2xl border border-accent-500/20 flex items-center justify-center mb-6 group-hover:from-accent-500/20 transition-all">
+                                    <reason.icon size={32} className="text-accent-500" strokeWidth={1.8} />
+                                </div>
+                                <h3 className="text-xl font-semibold text-neutral-900 mb-3">{reason.title}</h3>
+                                <p className="text-neutral-600 leading-relaxed">{reason.description}</p>
                             </div>
                         </motion.div>
                     ))}
                 </div>
 
                 {/* Trust Badges */}
-                <motion.div
-                    className="mt-16 p-8 bg-white rounded-2xl border border-neutral-200 shadow-subtle"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                >
-                    <div className="text-center mb-8">
-                        <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                            Accredited & Recognised
-                        </h3>
-                        <p className="text-neutral-600">
-                            Members of leading professional accounting bodies
-                        </p>
-                    </div>
-
-                    <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
-                        {/* Images for professional badges */}
-                        <img
-                            src="/images/badges/ca-anz.svg"
-                            alt="Chartered Accountants ANZ"
-                            className="flex-1 min-w-[150px] max-w-[200px] h-25 object-contain"
-                        />
-                        <img
-                            src="/images/badges/tax-pract-board.png"
-                            alt="Tax Practitioners Board"
-                            className="flex-1 min-w-[150px] max-w-[200px] h-30 object-contain"
-                        />
-                        <img
-                            src="/images/badges/cpa.png"
-                            alt="CPA Australia"
-                            className="flex-1 min-w-[150px] max-w-[200px] h-20 object-contain"
-                        />
+                <motion.div className="mt-20 text-center">
+                    <p className="text-neutral-600 mb-8">Accredited & Recognised</p>
+                    <div className="flex flex-wrap justify-center items-center gap-12">
+                        <img src="/images/badges/ca-anz.svg" alt="CA ANZ" className="h-16" />
+                        <img src="/images/badges/tax-pract-board.png" alt="Tax Practitioners Board" className="h-20" />
+                        <img src="/images/badges/cpa.png" alt="CPA Australia" className="h-14" />
                     </div>
                 </motion.div>
             </Container>

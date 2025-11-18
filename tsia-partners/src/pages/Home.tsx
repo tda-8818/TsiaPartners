@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/sections/Hero';
-import WhyChooseUs from '../components/sections/WhyChooseUs';
 import Values from '../components/sections/Values';
+import WhyChooseUs from '../components/sections/WhyChooseUs';
 
 const Home: React.FC = () => {
   return (

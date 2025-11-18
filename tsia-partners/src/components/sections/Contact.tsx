@@ -1,172 +1,149 @@
-import React from 'react';
+'use client';
+
 import { motion } from 'framer-motion';
 import { Container, Section } from '@/components/ui';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
 import ContactForm from '@/components/features/ContactForm';
 
-const Contact: React.FC = () => {
-    const contactDetails = [
-        {
-            icon: Phone,
-            label: 'Phone',
-            value: '02 9267 6533',
-            link: 'tel:0292676533',
-            description: 'Mon-Fri, 9am-5pm',
-        },
-        {
-            icon: Mail,
-            label: 'Email',
-            value: 'info@tsiapartners.com.au',
-            link: 'mailto:info@tsiapartners.com.au',
-            description: 'We respond within 24 hours',
-        },
-        {
-            icon: MapPin,
-            label: 'Visit Us',
-            value: 'Suite 201, Level 2, 309 Pitt St',
-            secondLine: 'Sydney, NSW 2000',
-            link: 'https://maps.google.com/?q=309+Pitt+St+Sydney',
-            description: 'CBD location, easy access',
-        },
-        {
-            icon: Clock,
-            label: 'Business Hours',
-            value: 'Monday - Friday: 9:00am - 5:00pm',
-            secondLine: 'Saturday - Sunday: Closed',
-            description: 'After-hours by appointment',
-        },
-    ];
-
+const Contact = () => {
     return (
-        <Section id="contact" background="grey" padding="lg">
-            <Container>
-                {/* Section Header */}
-                <motion.div
-                    className="text-center max-w-3xl mx-auto mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                >
-                    <h2 className="text-4xl lg:text-5xl font-light text-neutral-900 mb-4">
-                        Get in <span className="font-semibold text-accent relative">
-                            Touch
-                            <span className="absolute bottom-1 left-0 right-0 h-1 bg-accent/20 -z-10"></span>
-                        </span>
-                    </h2>
-                    <p className="text-xl text-neutral-600 leading-relaxed">
-                        Ready to take control of your financial future? Contact us today for a free consultation
-                    </p>
-                </motion.div>
+        <div className="pt-20">
 
-                <div className="grid lg:grid-cols-2 gap-12">
-                    {/* Contact Information */}
-                    <motion.div
-                        className="space-y-8"
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <div>
-                            <h3 className="text-2xl font-semibold text-neutral-900 mb-2">
-                                Let's Start a Conversation
-                            </h3>
-                            <p className="text-neutral-600">
-                                Whether you have a question about our services, need advice, or want to discuss your financial goals, we're here to help.
-                            </p>
-                        </div>
+            {/* Hero */}
+            <Section background="white" padding="md">
+                <Container>
+                    <motion.div className="text-center max-w-4xl mx-auto">
+                        <h1 className="text-5xl lg:text-6xl font-light text-neutral-900 mb-6">
+                            Get in <span className="font-semibold text-accent-500 underline-accent">Touch</span>
+                        </h1>
+                        <p className="text-xl lg:text-2xl text-neutral-600">
+                            Book instantly or send us a message — whatever works for you.
+                        </p>
+                    </motion.div>
+                </Container>
+            </Section>
 
-                        {/* Contact Cards */}
-                        <div className="space-y-4">
-                            {contactDetails.map((detail, index) => (
-                                <motion.div
-                                    key={detail.label}
-                                    className="group p-6 bg-white rounded-xl border border-neutral-200 hover:border-accent/30 hover:shadow-md-subtle transition-all"
-                                    initial={{ opacity: 0, y: 20 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    viewport={{ once: true }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                >
-                                    <div className="flex gap-4">
-                                        {/* Icon */}
-                                        <div className="w-12 h-12 bg-neutral-50 border border-neutral-200 rounded-xl flex items-center justify-center text-neutral-700 flex-shrink-0 group-hover:bg-accent-subtle group-hover:border-accent/30 transition-all">
-                                            <detail.icon size={24} strokeWidth={1.5} />
+            {/* Main Content + Map */}
+            <Section background="grey" padding="md" className="py-20 lg:py-32">
+                <Container>
+                    <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto">
+
+                        {/* Left Column: Booking + Contact Info */}
+                        <div className="space-y-8">
+
+                            {/* Booking Options */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                className="bg-white rounded-3xl p-10 shadow-md-subtle border border-neutral-200/70"
+                            >
+                                <h3 className="text-2xl font-semibold text-neutral-900 mb-8 flex items-center gap-3">
+                                    <Calendar className="text-accent-500" size={28} />
+                                    Book a Consultation
+                                </h3>
+
+                                <div className="space-y-5">
+
+                                    {/* Free In-Person */}
+                                    <a href="https://calendly.com/etjunk333/free-30-min-in-person-sydney-cbd" target="_blank" rel="noopener noreferrer"
+                                        className="block p-8 bg-white rounded-3xl border-2 border-accent-500/20 hover:border-accent-500 hover:shadow-xl-subtle transition-all group text-left">
+                                        <h4 className="text-xl font-semibold text-neutral-900 mb-2">Free 30-Minute In-Person</h4>
+                                        <p className="text-neutral-600 mb-4">Meet us at our Sydney CBD office</p>
+                                        <span className="text-accent-500 font-semibold group-hover:text-accent-600">Book Now</span>
+                                    </a>
+
+                                    {/* Most Popular — Free Call */}
+                                    <a href="https://calendly.com/etjunk333/30min" target="_blank" rel="noopener noreferrer"
+                                        className="block p-8 bg-accent-500/8 rounded-3xl border-2 border-accent-500/40 hover:border-accent-500 hover:bg-accent-500/12 hover:shadow-xl-subtle transition-all group text-left">
+                                        <h4 className="text-xl font-semibold text-neutral-900 mb-2">
+                                            Free 30-Minute Call
+                                            <span className="ml-3 text-xs bg-accent-500/30 px-3 py-1 rounded-full">Most Popular</span>
+                                        </h4>
+                                        <p className="text-neutral-700 mb-4">Phone or video — no obligation</p>
+                                        <span className="text-accent-600 font-semibold">Book Now</span>
+                                    </a>
+
+                                    {/* Paid 1-Hour Session */}
+                                    <a href="https://calendly.com/etjunk333/paid-1-hr-tax-planning-session-250-350" target="_blank" rel="noopener noreferrer"
+                                        className="block p-8 bg-gradient-to-br from-accent-500 to-accent-600 text-white rounded-3xl hover:from-accent-600 hover:to-accent-700 hover:shadow-2xl transition-all shadow-lg group text-left">
+                                        <h4 className="text-xl font-semibold mb-2">1-Hour Tax Planning Session</h4>
+                                        <p className="opacity-90 mb-4">$250–$350 (deductible from future fees)</p>
+                                        <span className="font-semibold">Book Strategy Session</span>
+                                    </a>
+
+                                </div>
+                            </motion.div>
+
+                            {/* Direct Contact */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: 0.1 }}
+                                className="bg-white rounded-3xl p-10 shadow-md-subtle border border-neutral-200/70"
+                            >
+                                <h3 className="text-2xl font-semibold text-neutral-900 mb-6">Or Reach Us Directly</h3>
+                                <div className="space-y-6">
+                                    <div className="flex items-start gap-4">
+                                        <div className="w-12 h-12 bg-accent-500 rounded-2xl flex items-center justify-center text-white flex-shrink-0">
+                                            <MapPin size={28} />
                                         </div>
-
-                                        {/* Content */}
-                                        <div className="flex-1">
-                                            <div className="text-sm font-medium text-neutral-500 mb-1">
-                                                {detail.label}
-                                            </div>
-                                            {detail.link ? (
-                                                <a
-                                                    href={detail.link}
-                                                    target={detail.link.startsWith('http') ? '_blank' : undefined}
-                                                    rel={detail.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                                    className="text-neutral-900 hover:text-accent font-semibold transition-colours block"
-                                                >
-                                                    {detail.value}
-                                                    {detail.secondLine && (
-                                                        <>
-                                                            <br />
-                                                            {detail.secondLine}
-                                                        </>
-                                                    )}
-                                                </a>
-                                            ) : (
-                                                <div className="text-neutral-900 font-semibold">
-                                                    {detail.value}
-                                                    {detail.secondLine && (
-                                                        <>
-                                                            <br />
-                                                            <span className="font-normal">{detail.secondLine}</span>
-                                                        </>
-                                                    )}
-                                                </div>
-                                            )}
-                                            <div className="text-sm text-neutral-500 mt-1">
-                                                {detail.description}
-                                            </div>
+                                        <div>
+                                            <p className="font-medium text-neutral-900">Office</p>
+                                            <p className="text-neutral-600">Suite 201, Level 2<br />309 Pitt Street<br />Sydney NSW 2000</p>
                                         </div>
                                     </div>
-                                </motion.div>
-                            ))}
+                                    <a href="tel:0292676533" className="flex items-center gap-4 group">
+                                        <div className="w-12 h-12 bg-accent-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                                            <Phone size={28} />
+                                        </div>
+                                        <span className="text-lg font-medium text-neutral-700 group-hover:text-accent-500">02 9267 6533</span>
+                                    </a>
+                                    <a href="mailto:general@tsiapartners.com.au" className="flex items-center gap-4 group">
+                                        <div className="w-12 h-12 bg-accent-500 rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+                                            <Mail size={28} />
+                                        </div>
+                                        <span className="text-lg font-medium text-neutral-700 group-hover:text-accent-500">general@tsiapartners.com.au</span>
+                                    </a>
+                                </div>
+                            </motion.div>
                         </div>
 
-                        {/* Google Map */}
-                        <motion.div
-                            className="h-80 bg-white rounded-xl border border-neutral-200 overflow-hidden shadow-md-subtle"
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
-                        >
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.617013841476!2d151.20521047570892!3d-33.87375977322468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae3dd6bc6c15%3A0x1fdb27a1bcfdf431!2s309%20Pitt%20St%2C%20Sydney%20NSW%202000!5e0!3m2!1sen!2sau!4v1759216630944!5m2!1sen!2sau"
-                                width="100%"
-                                height="100%"
-                                style={{ border: 0 }}
-                                allowFullScreen
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="TSIA Partners Location"
-                            ></iframe>
-                        </motion.div>
-                    </motion.div>
+                        {/* Right Column: Form + Map */}
+                        <div className="space-y-8">
+                            {/* Contact Form */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                            >
+                                <ContactForm />
+                            </motion.div>
 
-                    {/* Contact Form */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <ContactForm />
-                    </motion.div>
-                </div>
-            </Container>
-        </Section>
+                            {/* Google Maps */}
+                            <motion.div
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                className="bg-white rounded-3xl shadow-md-subtle border border-neutral-200/70 overflow-hidden"
+                            >
+                                <iframe
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.867947289367!2d151.2074363152095!3d-33.8674879806579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12ae1f2d3b8e4f%3A0x9e8f8e8f8e8f8e8f!2s309%20Pitt%20St%2C%20Sydney%20NSW%202000!5e0!3m2!1sen!2sau!4v1700000000000"
+                                    width="100%"
+                                    height="400"
+                                    style={{ border: 0 }}
+                                    allowFullScreen
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer-when-downgrade"
+                                    title="TSIA Partners Location"
+                                />
+                            </motion.div>
+                        </div>
+                    </div>
+                </Container>
+            </Section>
+        </div>
     );
 };
 
