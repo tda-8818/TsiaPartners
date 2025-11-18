@@ -73,8 +73,8 @@ const Clients = () => {
             >
               <div className="h-full bg-gradient-to-br from-neutral-50 to-neutral-100/50 p-8 rounded-3xl border border-neutral-200/70 shadow-md-subtle hover:shadow-xl-subtle hover:border-accent-500/40 transition-all duration-400 hover:-translate-y-3">
                 {/* Icon — logo orange */}
-                <div className="w-16 h-16 bg-accent-500 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <client.icon size={32} strokeWidth={1.8} />
+                <div className="w-16 h-16 bg-gradient-to-br from-accent-500/10 to-accent-500/5 rounded-2xl border border-accent-500/20 flex items-center justify-center mb-6 group-hover:from-accent-500/20 group-hover:border-accent-500/40 transition-all duration-300">
+                <client.icon size={32} strokeWidth={1.8} />
                 </div>
 
                 {/* Title */}

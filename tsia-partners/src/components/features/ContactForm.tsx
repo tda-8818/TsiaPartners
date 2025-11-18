@@ -116,9 +116,18 @@ const ContactForm = () => {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-gradient-to-br from-accent-500 to-accent-600 text-white font-semibold text-lg px-10 py-5 rounded-full shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full bg-white text-accent-500 border-2 border-accent-500 hover:bg-accent-500 hover:text-white px-10 py-6 rounded-full font-semibold text-lg shadow-md-subtle hover:shadow-xl-subtle hover:-translate-y-1 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed inline-flex items-center justify-center gap-3"
           >
-            {isSubmitting ? 'Sending...' : 'Send Message'}
+            {isSubmitting ? (
+              'Sending...'
+            ) : (
+              <>
+                Send Message
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </>
+            )}
           </button>
 
           {/* Success / Error */}

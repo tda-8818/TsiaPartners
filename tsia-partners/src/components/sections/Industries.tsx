@@ -1,24 +1,24 @@
 import { motion } from 'framer-motion';
 import { Container, Section } from '@/components/ui';
-import { 
+import {
   Building, Store, Hammer, Truck, Briefcase, GraduationCap,
-  Heart, Home, Wrench, Users, TrendingUp, Globe 
+  Heart, Home, Wrench, Users, TrendingUp, Globe
 } from 'lucide-react';
 
 const Industries = () => {
   const industries = [
-    { icon: Building,      title: 'Professional Services',     description: 'Lawyers, consultants, architects, engineers.' },
-    { icon: Store,         title: 'Retail & Hospitality',      description: 'Cafés, restaurants, shops, hotels.' },
-    { icon: Hammer,        title: 'Construction & Trades',     description: 'Builders, electricians, plumbers, trades.' },
-    { icon: Truck,         title: 'Transport & Logistics',     description: 'Freight, delivery, warehousing.' },
-    { icon: Briefcase,     title: 'Financial Services',        description: 'Brokers, advisers, lending firms.' },
-    { icon: GraduationCap, title: 'Education & Childcare',     description: 'Schools, tutoring, childcare centres.' },
-    { icon: Heart,         title: 'Healthcare',                description: 'Medical practices, allied health, pharmacies.' },
-    { icon: Home,          title: 'Property & Real Estate',    description: 'Developers, agents, investors, strata.' },
-    { icon: Wrench,        title: 'Manufacturing',             description: 'Factories, wholesalers, distributors.' },
-    { icon: Users,         title: 'Not-for-Profits',           description: 'Charities, associations, community groups.' },
-    { icon: TrendingUp,    title: 'Startups & Tech',           description: 'Software, SaaS, high-growth ventures.' },
-    { icon: Globe,         title: 'Import & Export',           description: 'International trade and cross-border business.' },
+    { icon: Building, title: 'Professional Services', description: 'Lawyers, consultants, architects, engineers.' },
+    { icon: Store, title: 'Retail & Hospitality', description: 'Cafés, restaurants, shops, hotels.' },
+    { icon: Hammer, title: 'Construction & Trades', description: 'Builders, electricians, plumbers, trades.' },
+    { icon: Truck, title: 'Transport & Logistics', description: 'Freight, delivery, warehousing.' },
+    { icon: Briefcase, title: 'Financial Services', description: 'Brokers, advisers, lending firms.' },
+    { icon: GraduationCap, title: 'Education & Childcare', description: 'Schools, tutoring, childcare centres.' },
+    { icon: Heart, title: 'Healthcare', description: 'Medical practices, allied health, pharmacies.' },
+    { icon: Home, title: 'Property & Real Estate', description: 'Developers, agents, investors, strata.' },
+    { icon: Wrench, title: 'Manufacturing', description: 'Factories, wholesalers, distributors.' },
+    { icon: Users, title: 'Not-for-Profits', description: 'Charities, associations, community groups.' },
+    { icon: TrendingUp, title: 'Startups & Tech', description: 'Software, SaaS, high-growth ventures.' },
+    { icon: Globe, title: 'Import & Export', description: 'International trade and cross-border business.' },
   ];
 
   return (
@@ -52,8 +52,8 @@ const Industries = () => {
             >
               <div className="h-full bg-gradient-to-br from-neutral-50 to-neutral-100/50 p-8 rounded-3xl border border-neutral-200/70 shadow-md-subtle hover:shadow-xl-subtle hover:border-accent-500/40 transition-all duration-400 hover:-translate-y-3">
                 {/* Icon — logo orange */}
-                <div className="w-16 h-16 bg-accent-500 rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <industry.icon size={32} strokeWidth={1.8} />
+                <div className="w-16 h-16 bg-gradient-to-br from-accent-500/10 to-accent-500/5 rounded-2xl border border-accent-500/20 flex items-center justify-center mb-6 group-hover:from-accent-500/20 group-hover:border-accent-500/40 transition-all duration-300">
+                  <industry.icon size={32} className="text-accent-500" strokeWidth={1.8} />
                 </div>
 
                 <h3 className="text-xl font-semibold text-neutral-900 mb-3">
@@ -69,7 +69,7 @@ const Industries = () => {
         </div>
 
         {/* CTA with perfect spacing */}
-        <motion.div 
+        <motion.div
           className="text-center mt-20 mb-32 lg:mb-40"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
